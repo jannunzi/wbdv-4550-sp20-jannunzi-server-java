@@ -2,3 +2,40 @@ h1 {
     color: white;
     background-color: red;
 }
+
+.wbdv-margin-left-5px {
+    margin-left: 5px;
+}
+
+.wbdv-display-inline {
+    display: inline;
+}
+
+.wbdv-width-80-percent {
+    width: 80%;
+}
+
+.wbdv-width-70-percent {
+    width: 70%;
+}
+
+.wbdv-height-24px {
+    height: 24px;
+}
+
+
+.wbdv-border-1px-solid-light-gray {
+    border: 1px solid #ced4da;
+}
+
+.wbdv-color-white, .wbdv-color-white:hover {
+    color: white;
+}
+
+.wbdv-padding-left-0px {
+    padding-left: 0px;
+}
+
+.wbdv-color-red {
+    color: red;
+}

@@ -39,28 +39,24 @@
     }
 
     let currentUserIndex = -1
-    function editUser(index) {
+    async function editUser(index) {
         currentUserIndex = index
         let user = users[index]
         let userId = user._id
 
-        userService.findUserById(userId)
-            .then(actualUser => {
-                $usernameFld.val(actualUser.username)
-            })
+        const actualUser = await userService.findUserById(userId)
+        $usernameFld.val(actualUser.username)
     }
 
-    function updateUser() {
+    async function updateUser() {
         const updatedUser = {
             username: $usernameFld.val()
         }
         $usernameFld.val("")
         updatedUser._id = users[currentUserIndex]._id
 
-        userService.updateUser(updatedUser._id, updatedUser)
-            .then((actualUser) => {
-                findAllUsers()
-            })
+        const actualUser = await userService.updateUser(updatedUser._id, updatedUser)
+        findAllUsers()
     }
 
     function renderUsers() {
@@ -81,13 +77,15 @@
             $userList.append($li)
         }
     }
-    function findAllUsers() {
-        userService
-            .findAllUsers()
-            .then(theusers => {
-                users = theusers
-                renderUsers()
-            })
+    async function findAllUsers() {
+        // userService
+        //     .findAllUsers()
+        //     .then(theusers => {
+        //             users = theusers
+        //             renderUsers()
+        // })
+        users = await userService.findAllUsers();
+        renderUsers();
     }
     function main() {
         $userList = $("#userList")
@@ -97,12 +95,14 @@
         $updateBtn = $("#updateBtn")
         $updateBtn.click(updateUser)
 
-        userService
-            .findAllUsers()
-            .then(theusers => {
-                users = theusers
-                renderUsers()
-            })
+        findAllUsers()
+
+        // userService
+        //     .findAllUsers()
+        //     .then(theusers => {
+        //         users = theusers
+        //         renderUsers()
+        //     })
     }
     $(main)
 })()
