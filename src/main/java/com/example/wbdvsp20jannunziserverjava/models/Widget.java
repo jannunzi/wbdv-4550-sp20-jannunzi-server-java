@@ -1,7 +1,15 @@
 package com.example.wbdvsp20jannunziserverjava.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="widgets")
 public class Widget {
-    private String id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String title;
     private String type = "HEADING";
     private String topicId;
@@ -31,11 +39,11 @@ public class Widget {
         this.type = type;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -47,7 +55,7 @@ public class Widget {
         this.title = title;
     }
 
-    public Widget(String id, String title, String type) {
+    public Widget(Integer id, String title, String type) {
         this.id = id;
         this.title = title;
         this.type = type;
