@@ -14,25 +14,10 @@ public class WidgetController {
     @Autowired
     WidgetService service;
 
-    @GetMapping("/widgets/create")
-    public Widget createWidgetNotREST() {
-        Widget w1 = new Widget();
-        w1.setSize(45);
-        w1.setTitle("Big Widget");
-        return service.createWidget(w1);
-    }
-
-
     @PostMapping("/widgets")
     public Widget createWidget(
             @RequestBody Widget newWidget) {
         return service.createWidget(newWidget);
-    }
-
-    @GetMapping("/widgets/{widgetId}/delete")
-    public int deleteWidgetNotREST(
-            @PathVariable("widgetId") Integer wid) {
-        return service.deleteWidget(wid);
     }
 
     @DeleteMapping("/widgets/{widgetId}")
@@ -59,9 +44,9 @@ public class WidgetController {
         return service.findAllWidgets();
     }
 
-    @GetMapping("/topics/{tid}/widgets")
-    public List<Widget> findWidgetsForTopic(
-            @PathVariable("tid") String topicId) {
-        return service.findWidgetsForTopic(topicId);
-    }
+//    @GetMapping("/topics/{tid}/widgets")
+//    public List<Widget> findWidgetsForTopic(
+//            @PathVariable("tid") String topicId) {
+//        return service.findWidgetsForTopic(topicId);
+//    }
 }

@@ -31,9 +31,9 @@ public class WidgetService {
 //        return (List<Widget>)widgetRepository.findAll();
     }
 
-    public List<Widget> findWidgetsForTopic(String topicId) {
-        return widgetRepository.findWidgetsForTopic(topicId);
-    }
+//    public List<Widget> findWidgetsForTopic(String topicId) {
+//        return widgetRepository.findWidgetsForTopic(topicId);
+//    }
 
     public int deleteWidget(Integer wid) {
         widgetRepository.deleteById(wid);

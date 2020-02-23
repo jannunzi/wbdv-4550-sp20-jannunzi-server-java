@@ -19,7 +19,7 @@ public interface WidgetRepository
 
     // SELECT * FROM cs4550_sp20.widgets WHERE topic_id='222';
     // @Query(nativeQuery = true, value = "SELECT * FROM widgets WHERE topic_id=:tid")
-    @Query("SELECT widget FROM Widget widget WHERE widget.topicId=:tid")
-    public List<Widget> findWidgetsForTopic(
-            @Param("tid") String topicId);
+//    @Query("SELECT widget FROM Widget widget WHERE widget.topicId=:tid")
+//    public List<Widget> findWidgetsForTopic(
+//            @Param("tid") String topicId);
 }

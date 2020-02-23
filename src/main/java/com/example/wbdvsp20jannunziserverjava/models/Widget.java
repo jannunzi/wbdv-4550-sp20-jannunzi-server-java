@@ -12,8 +12,18 @@ public class Widget {
 
     private String title;
     private String type = "HEADING";
-    private String topicId;
     private int size = 2;
+
+    @ManyToOne
+    private Topic topic;
+
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
+    }
 
     public int getSize() {
         return size;
@@ -21,14 +31,6 @@ public class Widget {
 
     public void setSize(int size) {
         this.size = size;
-    }
-
-    public String getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(String topicId) {
-        this.topicId = topicId;
     }
 
     public String getType() {
